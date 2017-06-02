@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" >
+<head>
+    <meta charset="UTF-8">
+    <title ng-bind="name"></title><!--采用ng-bind不会造成闪烁 测试一下能不能支持angularJs 展现出来了 就是能-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="header">
+
+    <span>豆瓣电影</span>
+    <div class="search">
+            <input type="text" placeholder="请输入要搜索的内容..." ng-model='search'>
+            <button>搜索</button>
+    </div>
+
+</div>
+<div class="content">
+
+    <div class="content_l">
+        <ul>
+            <li router-sel='active'><a href="#!/movie/in_theaters">热门电影</a> </li>
+            <li router-sel='active'><a href="#!/movie/coming_soon">即将上映</a> </li>
+            <li router-sel='active'><a href="#!/movie/top250">top250电影</a> </li>
+        </ul>
+
+    </div>
+    <div class="content_r" ng-view >
+
+    </div>
+</div>
+
+<script src=js/angular1.6.js></script>
+<script src="js/angular-route.js"></script>
+<script src="js/app.js"></script>
+<script src=js/config.js></script>
+<script src=js/service.js></script>
+<script src=js/directive.js></script>
+<!--<script src=js/controller.js></script>-->
+
+
+</body>
+
+<!---->
+
+
+</html>

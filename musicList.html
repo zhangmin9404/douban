@@ -1,0 +1,32 @@
+<div style="text-align: center;"  ng-show='isloading'>
+    <img src="loading.gif" alt="" style="width: 300px;height: 300px;">
+</div>
+<div ng-hide='isloading'>
+    <h1 ng-bind="data.title"></h1>
+    <div class="list">
+        <a href="#!detail/{{movie.id}}" ng-repeat='movie in data.subjects |filter:search  '>
+            <dl>
+                <dt><img ng-src="{{movie.images.small}}"></dt>
+                <dd>
+                    <h4 ng-bind="movie.title"></h4>
+                    <p ng-bind="movie.genres"></p>
+                    <!--导演可能不止一人-->
+                    <p>导演: <span ng-repeat="dir in movie.directors" ng-bind="dir.name"></span> </p>
+                    <p>主演: <span ng-repeat="cast in movie.casts" ng-bind="cast.name"></span></p>
+                </dd>
+                <span class="score"  ng-bind='movie.rating.average'></span>
+            </dl>
+        </a>
+
+    </div>
+
+    <div class="page">
+        <span>{{curPage}}/{{totalCount}}</span>
+        <a  ng-click='pageChange(false)' ng-show='isPerPage'>上一页</a>
+        <a  ng-click='pageChange(true)' ng-show='isNextPage'>下一页</a>
+        <!--<a  ng-click="loadPage('perPage')">上一页</a>-->
+        <!--<a  ng-click="loadPage('nextPage')">下一页</a>-->
+    </div>
+
+
+</div>

@@ -1,0 +1,15 @@
+<h1 ng-bind='data.original_title'></h1>
+
+<div class="detail_content">
+    <dl class="detail_dl">
+        <dt><img ng-src='{{data.images.small}}' width="300px" height="400px"></dt>
+        <dd>
+            <h4 ng-bind='data.title'></h4>
+            <p >类型:{{data.genres}}</p>
+            <p>导演: <span ng-repeat="dir in data.directors" ng-bind="dir.name"></span></p>
+            <p>主演: <span ng-repeat="cast in data.casts" ng-bind="cast.name"> &nbsp;</span></p>
+            <p>评分: <span  ng-bind='data.rating.average'></span></p>
+        </dd>
+    </dl>
+</div>
+<div ng-bind='data.summary'></div>
